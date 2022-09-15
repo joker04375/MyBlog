@@ -1,0 +1,339 @@
+2022-09-13 23:07:42.440  INFO 4552 --- [restartedMain] com.serein.myblog.MyblogApplication      : Starting MyblogApplication on LAPTOP-EVS3VUIR with PID 4552 (E:\桌面\myblog\target\classes started by 86138 in E:\桌面\myblog)
+2022-09-13 23:07:42.445 DEBUG 4552 --- [restartedMain] com.serein.myblog.MyblogApplication      : Running with Spring Boot v2.3.12.RELEASE, Spring v5.2.12.RELEASE
+2022-09-13 23:07:42.445  INFO 4552 --- [restartedMain] com.serein.myblog.MyblogApplication      : The following profiles are active: dev
+2022-09-13 23:07:42.486  INFO 4552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-13 23:07:42.486  INFO 4552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-13 23:07:43.465  INFO 4552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-13 23:07:43.471  INFO 4552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 23:07:43.472  INFO 4552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-09-13 23:07:43.554  INFO 4552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 23:07:43.554  INFO 4552 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1067 ms
+2022-09-13 23:07:44.311  INFO 4552 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-13 23:07:44.394  INFO 4552 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-13 23:07:44.773  INFO 4552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-13 23:07:44.801  INFO 4552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-13 23:07:44.808  INFO 4552 --- [restartedMain] com.serein.myblog.MyblogApplication      : Started MyblogApplication in 2.902 seconds (JVM running for 5.212)
+2022-09-13 23:08:00.009  INFO 4552 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-13 23:08:00.009  INFO 4552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-13 23:08:00.016  INFO 4552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-09-13 23:08:00.041  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.index', args=[{}, 1, {}]}
+2022-09-13 23:08:00.056  INFO 4552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-13 23:08:00.172  INFO 4552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-13 23:08:00.201 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.B.getFirstPageBlog_COUNT         : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id AND b.published = 1
+2022-09-13 23:08:00.216 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.B.getFirstPageBlog_COUNT         : ==> Parameters: 
+2022-09-13 23:08:00.238 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.B.getFirstPageBlog_COUNT         : <==      Total: 1
+2022-09-13 23:08:00.239 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getFirstPageBlog      : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description,t.name ,u.nickname, u.avatar from t_blog b, t_type t,t_user u where b.type_id = t.id and u.id = b.user_id and b.published = 1 order by b.create_time desc LIMIT ?
+2022-09-13 23:08:00.240 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getFirstPageBlog      : ==> Parameters: 10(Integer)
+2022-09-13 23:08:00.243 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getFirstPageBlog      : <==      Total: 2
+2022-09-13 23:08:00.244 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==>  Preparing: SELECT * FROM t_blog WHERE t_blog.recommend = TRUE ORDER BY t_blog.create_time DESC LIMIT 4
+2022-09-13 23:08:00.244 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==> Parameters: 
+2022-09-13 23:08:00.247 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getAllRecommendBlog   : <==      Total: 1
+2022-09-13 23:08:00.247 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getNewComment    : ==>  Preparing: SELECT * FROM t_comment c, t_blog b WHERE c.blog_id = b.id ORDER BY c.create_time DESC LIMIT 10
+2022-09-13 23:08:00.247 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getNewComment    : ==> Parameters: 
+2022-09-13 23:08:00.250 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getNewComment    : <==      Total: 0
+2022-09-13 23:08:00.251  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Result : index
+2022-09-13 23:08:00.875  INFO 4552 --- [http-nio-8080-exec-2] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:08:00.876 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:08:00.876 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:08:00.877 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:08:00.878 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:08:00.878 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:08:00.879 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:08:00.880 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:08:00.880 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:08:00.881 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:08:00.881 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:08:00.882 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:08:00.884 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:08:00.885  INFO 4552 --- [http-nio-8080-exec-2] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:08:03.996  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.FriendsShowController.friends', args=[{}]}
+2022-09-13 23:08:04.000 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.FriendLinkMapper.listFriendLink  : ==>  Preparing: select * from t_friend order by create_time asc
+2022-09-13 23:08:04.001 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.FriendLinkMapper.listFriendLink  : ==> Parameters: 
+2022-09-13 23:08:04.003 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.FriendLinkMapper.listFriendLink  : <==      Total: 0
+2022-09-13 23:08:04.004  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Result : friends
+2022-09-13 23:08:04.050  INFO 4552 --- [http-nio-8080-exec-7] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:08:04.050 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:08:04.050 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:08:04.051 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:08:04.052 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:08:04.052 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:08:04.052 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:08:04.053 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:08:04.053 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:08:04.054 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:08:04.054 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:08:04.054 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:08:04.055 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:08:04.055  INFO 4552 --- [http-nio-8080-exec-7] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:08:11.642  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.TypeShowController.types', args=[1, -1, {}]}
+2022-09-13 23:08:11.644 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.TypeMapper.getAllTypeAndBlog     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from t_type t,t_blog b where t.id = b.type_id
+2022-09-13 23:08:11.644 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.TypeMapper.getAllTypeAndBlog     : ==> Parameters: 
+2022-09-13 23:08:11.647 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.TypeMapper.getAllTypeAndBlog     : <==      Total: 2
+2022-09-13 23:08:11.648 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getByTypeId      : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count, b.update_time, b.description,t.name ,u.nickname, u.avatar from t_blog b, t_type t,t_user u where b.type_id = t.id and u.id = b.user_id and b.type_id = ? order by b.update_time desc
+2022-09-13 23:08:11.649 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getByTypeId      : ==> Parameters: 1(Long)
+2022-09-13 23:08:11.651 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getByTypeId      : <==      Total: 2
+2022-09-13 23:08:11.651  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Result : types
+2022-09-13 23:08:11.674 ERROR 4552 --- [http-nio-8080-exec-5] c.s.m.h.ControllerExceptionHandler       : Requst URL : http://localhost:8080/types/me.jpg，Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "me.jpg"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "me.jpg"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 51 common frames omitted
+
+2022-09-13 23:08:11.675  WARN 4552 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "me.jpg"]
+2022-09-13 23:08:11.721  INFO 4552 --- [http-nio-8080-exec-6] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:08:11.721 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:08:11.721 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:08:11.723 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:08:11.725 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:08:11.725 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:08:11.725 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:08:11.726 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:08:11.726 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:08:11.727 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:08:11.728 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:08:11.728 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:08:11.728 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:08:11.729  INFO 4552 --- [http-nio-8080-exec-6] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:08:49.528  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.index', args=[{}, 1, {}]}
+2022-09-13 23:08:49.530 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.B.getFirstPageBlog_COUNT         : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id AND b.published = 1
+2022-09-13 23:08:49.530 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.B.getFirstPageBlog_COUNT         : ==> Parameters: 
+2022-09-13 23:08:49.531 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.B.getFirstPageBlog_COUNT         : <==      Total: 1
+2022-09-13 23:08:49.532 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getFirstPageBlog      : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description,t.name ,u.nickname, u.avatar from t_blog b, t_type t,t_user u where b.type_id = t.id and u.id = b.user_id and b.published = 1 order by b.create_time desc LIMIT ?
+2022-09-13 23:08:49.532 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getFirstPageBlog      : ==> Parameters: 10(Integer)
+2022-09-13 23:08:49.533 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getFirstPageBlog      : <==      Total: 2
+2022-09-13 23:08:49.533 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==>  Preparing: SELECT * FROM t_blog WHERE t_blog.recommend = TRUE ORDER BY t_blog.create_time DESC LIMIT 4
+2022-09-13 23:08:49.533 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==> Parameters: 
+2022-09-13 23:08:49.534 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getAllRecommendBlog   : <==      Total: 1
+2022-09-13 23:08:49.535 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getNewComment    : ==>  Preparing: SELECT * FROM t_comment c, t_blog b WHERE c.blog_id = b.id ORDER BY c.create_time DESC LIMIT 10
+2022-09-13 23:08:49.535 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getNewComment    : ==> Parameters: 
+2022-09-13 23:08:49.535 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getNewComment    : <==      Total: 0
+2022-09-13 23:08:49.535  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Result : index
+2022-09-13 23:08:49.603  INFO 4552 --- [http-nio-8080-exec-5] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:08:49.604 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:08:49.604 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:08:49.604 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:08:49.605 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:08:49.605 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:08:49.606 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:08:49.606 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:08:49.606 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:08:49.607 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:08:49.608 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:08:49.608 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:08:49.609 DEBUG 4552 --- [http-nio-8080-exec-5] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:08:49.609  INFO 4552 --- [http-nio-8080-exec-5] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:09:07.319  INFO 4552 --- [http-nio-8080-exec-4] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/blog/62', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blog', args=[62, {}]}
+2022-09-13 23:09:07.320 DEBUG 4552 --- [http-nio-8080-exec-4] c.s.m.mapper.BlogMapper.getDetailedBlog  : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from t_blog b,t_user u, t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2022-09-13 23:09:07.320 DEBUG 4552 --- [http-nio-8080-exec-4] c.s.m.mapper.BlogMapper.getDetailedBlog  : ==> Parameters: 62(Long)
+2022-09-13 23:09:07.321 DEBUG 4552 --- [http-nio-8080-exec-4] c.s.m.mapper.BlogMapper.getDetailedBlog  : <==      Total: 1
+2022-09-13 23:09:07.321  INFO 4552 --- [http-nio-8080-exec-4] com.serein.myblog.aspect.LogAspect       : Result : blog
+2022-09-13 23:09:07.361 ERROR 4552 --- [http-nio-8080-exec-10] c.s.m.h.ControllerExceptionHandler       : Requst URL : http://localhost:8080/blog/me.jpg，Exception : {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "me.jpg"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:94)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NumberFormatException: For input string: "me.jpg"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:589)
+	at java.lang.Long.valueOf(Long.java:803)
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214)
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53)
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	... 51 common frames omitted
+
+2022-09-13 23:09:07.361  WARN 4552 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "me.jpg"]
+2022-09-13 23:09:07.643  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:09:07.643 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:09:07.643 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:09:07.644 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:09:07.644 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:09:07.644 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:09:07.645 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:09:07.645 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:09:07.645 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:09:07.646 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:09:07.646 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:09:07.646 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:09:07.646 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:09:07.646  INFO 4552 --- [http-nio-8080-exec-9] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:09:19.367  INFO 4552 --- [http-nio-8080-exec-10] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.index', args=[{}, 1, {}]}
+2022-09-13 23:09:19.369 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.B.getFirstPageBlog_COUNT         : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id AND b.published = 1
+2022-09-13 23:09:19.369 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.B.getFirstPageBlog_COUNT         : ==> Parameters: 
+2022-09-13 23:09:19.370 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.B.getFirstPageBlog_COUNT         : <==      Total: 1
+2022-09-13 23:09:19.370 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getFirstPageBlog      : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description,t.name ,u.nickname, u.avatar from t_blog b, t_type t,t_user u where b.type_id = t.id and u.id = b.user_id and b.published = 1 order by b.create_time desc LIMIT ?
+2022-09-13 23:09:19.370 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getFirstPageBlog      : ==> Parameters: 10(Integer)
+2022-09-13 23:09:19.371 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getFirstPageBlog      : <==      Total: 2
+2022-09-13 23:09:19.372 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==>  Preparing: SELECT * FROM t_blog WHERE t_blog.recommend = TRUE ORDER BY t_blog.create_time DESC LIMIT 4
+2022-09-13 23:09:19.372 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getAllRecommendBlog   : ==> Parameters: 
+2022-09-13 23:09:19.373 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.BlogMapper.getAllRecommendBlog   : <==      Total: 1
+2022-09-13 23:09:19.373 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.mapper.BlogMapper.getNewComment    : ==>  Preparing: SELECT * FROM t_comment c, t_blog b WHERE c.blog_id = b.id ORDER BY c.create_time DESC LIMIT 10
+2022-09-13 23:09:19.373 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.mapper.BlogMapper.getNewComment    : ==> Parameters: 
+2022-09-13 23:09:19.374 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.mapper.BlogMapper.getNewComment    : <==      Total: 0
+2022-09-13 23:09:19.374  INFO 4552 --- [http-nio-8080-exec-10] com.serein.myblog.aspect.LogAspect       : Result : index
+2022-09-13 23:09:19.472  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Request : {url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.serein.myblog.controller.IndexController.blogMessage', args=[{}]}
+2022-09-13 23:09:19.473 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getBlogTotal     : ==>  Preparing: select count(*) from t_blog
+2022-09-13 23:09:19.473 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getBlogTotal     : ==> Parameters: 
+2022-09-13 23:09:19.474 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.mapper.BlogMapper.getBlogTotal     : <==      Total: 1
+2022-09-13 23:09:19.474 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogViewTotal      : ==>  Preparing: select coalesce (sum(views),0) from t_blog
+2022-09-13 23:09:19.474 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogViewTotal      : ==> Parameters: 
+2022-09-13 23:09:19.475 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogViewTotal      : <==      Total: 1
+2022-09-13 23:09:19.475 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==>  Preparing: select count(*) from t_comment
+2022-09-13 23:09:19.475 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogCommentTotal   : ==> Parameters: 
+2022-09-13 23:09:19.476 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogCommentTotal   : <==      Total: 1
+2022-09-13 23:09:19.476 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==>  Preparing: select count(*) from t_message
+2022-09-13 23:09:19.476 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogMessageTotal   : ==> Parameters: 
+2022-09-13 23:09:19.477 DEBUG 4552 --- [http-nio-8080-exec-1] c.s.m.m.BlogMapper.getBlogMessageTotal   : <==      Total: 1
+2022-09-13 23:09:19.477  INFO 4552 --- [http-nio-8080-exec-1] com.serein.myblog.aspect.LogAspect       : Result : index :: blogMessage
+2022-09-13 23:10:07.948 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.U.findUserByUserNameAndPassword  : ==>  Preparing: select * from t_user where user_name = ? and password = ?;
+2022-09-13 23:10:07.948 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.U.findUserByUserNameAndPassword  : ==> Parameters: wzk(String), 202cb962ac59075b964b07152d234b70(String)
+2022-09-13 23:10:07.949 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.U.findUserByUserNameAndPassword  : <==      Total: 0
+2022-09-13 23:10:11.254 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.U.findUserByUserNameAndPassword  : ==>  Preparing: select * from t_user where user_name = ? and password = ?;
+2022-09-13 23:10:11.254 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.U.findUserByUserNameAndPassword  : ==> Parameters: wzk(String), e68d1dc4248630065032e26a8d508e86(String)
+2022-09-13 23:10:11.255 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.U.findUserByUserNameAndPassword  : <==      Total: 0
+2022-09-13 23:10:17.157 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.U.findUserByUserNameAndPassword  : ==>  Preparing: select * from t_user where user_name = ? and password = ?;
+2022-09-13 23:10:17.158 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.U.findUserByUserNameAndPassword  : ==> Parameters: Serein(String), e68d1dc4248630065032e26a8d508e86(String)
+2022-09-13 23:10:17.159 DEBUG 4552 --- [http-nio-8080-exec-6] c.s.m.m.U.findUserByUserNameAndPassword  : <==      Total: 1
+2022-09-13 23:10:18.995 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.B.getAllBlogQuery_COUNT          : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2022-09-13 23:10:18.995 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.B.getAllBlogQuery_COUNT          : ==> Parameters: 
+2022-09-13 23:10:18.996 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.m.B.getAllBlogQuery_COUNT          : <==      Total: 1
+2022-09-13 23:10:18.999 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getAllBlogQuery  : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2022-09-13 23:10:19.000 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getAllBlogQuery  : ==> Parameters: 10(Integer)
+2022-09-13 23:10:19.001 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.m.mapper.BlogMapper.getAllBlogQuery  : <==      Total: 2
+2022-09-13 23:10:19.001 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.myblog.mapper.TypeMapper.getAllType  : ==>  Preparing: select * from t_type
+2022-09-13 23:10:19.001 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.myblog.mapper.TypeMapper.getAllType  : ==> Parameters: 
+2022-09-13 23:10:19.002 DEBUG 4552 --- [http-nio-8080-exec-7] c.s.myblog.mapper.TypeMapper.getAllType  : <==      Total: 2
+2022-09-13 23:10:20.102 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.TypeMapper.getAllType_COUNT      : ==>  Preparing: SELECT count(0) FROM t_type
+2022-09-13 23:10:20.102 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.TypeMapper.getAllType_COUNT      : ==> Parameters: 
+2022-09-13 23:10:20.103 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.m.m.TypeMapper.getAllType_COUNT      : <==      Total: 1
+2022-09-13 23:10:20.104 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.myblog.mapper.TypeMapper.getAllType  : ==>  Preparing: SELECT * FROM t_type order by id desc LIMIT ?
+2022-09-13 23:10:20.104 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.myblog.mapper.TypeMapper.getAllType  : ==> Parameters: 10(Integer)
+2022-09-13 23:10:20.104 DEBUG 4552 --- [http-nio-8080-exec-10] c.s.myblog.mapper.TypeMapper.getAllType  : <==      Total: 2
+2022-09-13 23:10:23.148 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.F.listFriendLink_COUNT           : ==>  Preparing: SELECT count(0) FROM t_friend
+2022-09-13 23:10:23.148 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.F.listFriendLink_COUNT           : ==> Parameters: 
+2022-09-13 23:10:23.148 DEBUG 4552 --- [http-nio-8080-exec-2] c.s.m.m.F.listFriendLink_COUNT           : <==      Total: 1
+2022-09-13 23:10:24.049 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.PictureMapper.listPicture_COUNT  : ==>  Preparing: SELECT count(0) FROM t_picture
+2022-09-13 23:10:24.049 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.PictureMapper.listPicture_COUNT  : ==> Parameters: 
+2022-09-13 23:10:24.052 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.m.PictureMapper.listPicture_COUNT  : <==      Total: 1
+2022-09-13 23:10:24.052 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.PictureMapper.listPicture   : ==>  Preparing: select * from t_picture order by id desc LIMIT ?
+2022-09-13 23:10:24.052 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.PictureMapper.listPicture   : ==> Parameters: 10(Integer)
+2022-09-13 23:10:24.055 DEBUG 4552 --- [http-nio-8080-exec-9] c.s.m.mapper.PictureMapper.listPicture   : <==      Total: 1

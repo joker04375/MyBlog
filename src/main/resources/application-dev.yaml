@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: wzk
+    url: jdbc:mysql://localhost:3306/db_mblog?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC
+
+logging:
+  level:
+    root: info
+    com.serein.myblog: debug
+  file:
+    name: log/blog-dev.log

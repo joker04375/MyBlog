@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.serein.myblog.mapper.MemoryMapper">
+    <!--添加记忆-->
+    <insert id="saveMemory">
+        insert into t_memory (picture_address,create_time,memory)
+        values (#{pictureAddress},#{createTime},#{memory})
+    </insert>
+
+    <!--编辑修改相册-->
+    <update id="updateMemory" parameterType="com.serein.myblog.entity.Memory">
+        update t_memory
+        set picture_address = #{pictureAddress}, memory = #{memory}
+        where id = #{id};
+    </update>
+
+    <delete id="deleteMemory">
+        delete * from t_memory p where p.id = #{id}
+    </delete>
+
+    <!--查询所有记忆-->
+    <select id="listMemory" resultType="com.serein.myblog.entity.Memory">
+        select * from t_memory order by t_memory.id desc
+    </select>
+
+    <!--根据id查询照片-->
+    <select id="getMemory" resultType="com.serein.myblog.entity.Memory">
+        select * from t_memory p where p.id = #{id}
+    </select>
+</mapper>
